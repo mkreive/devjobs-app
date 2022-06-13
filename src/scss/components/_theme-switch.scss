@@ -1,0 +1,36 @@
+.theme-switch {
+    width: 10%;
+    height: 10%;
+    display: flex;
+    justify-content: space-between;
+
+    &__sun {
+        width: 20%;
+        height: 100%;
+        background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102842/DevJobsApp/icon-sun_kosgz4.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__moon {
+        width: 20%;
+        height: 100%;
+        background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-moon_l1ltzz.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__bar {
+        z-index: 10;
+        width: 60%;
+        height: 100%;
+        background-color: $color-white;
+        border-radius: 2rem;
+        margin: 0 1.5rem;
+
+        &-circle {
+            z-index: 99;
+            background-color: $color-accent-purple;
+            width: 3rem;
+            height: 3rem;
+        }
+    }
+}
