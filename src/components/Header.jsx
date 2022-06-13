@@ -27,7 +27,7 @@ const Header = function () {
                 <hr className='line' />
                 <div className='input-submit'>
                     <div className='checkbox'></div>
-                    <div className='text text-black'>Full time only</div>
+                    <div className='text text-bold'>Full time only</div>
                     <button className='btn'>Search</button>
                 </div>
             </div>

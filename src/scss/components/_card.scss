@@ -1,0 +1,23 @@
+.card {
+    width: 30%;
+    height: 30vh;
+    background-color: $color-white;
+    margin-bottom: 8rem;
+    border-radius: 3%;
+    padding: 4rem 3rem 3rem 3rem;
+
+    &__logo {
+        position: relative;
+        top: -9rem;
+        background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102872/DevJobsApp/creative_cdv7ub.svg');
+        background-color: rgb(74, 31, 65);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 20%;
+        height: 32%;
+        border-radius: 33%;
+    }
+    &__text-group {
+        display: flex;
+    }
+}

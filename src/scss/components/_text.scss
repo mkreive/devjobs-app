@@ -1,6 +1,17 @@
 .text {
-    &-black {
+    &-bold {
         color: $color-black;
         font-size: $font-size-main;
+        font-weight: $font-weight-heavy;
+    }
+    &-gray {
+        font-size: 1rem;
+        color: $color-background-dark-gray;
+        font-size: $font-size-main;
+    }
+    &-purple {
+        color: $color-accent-purple;
+        font-size: $font-size-small;
+        font-weight: $font-weight-heavy;
     }
 }
