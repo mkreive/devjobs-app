@@ -3,7 +3,7 @@
     height: 15vh;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $color-neutral-light-grayish-blue;
+
     padding-bottom: 1rem;
 
     @include respond(tab-land) {
