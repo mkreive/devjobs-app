@@ -1,0 +1,12 @@
+.app {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    overflow: scroll;
+
+    font-family: 'Kumbh Sans', sans-serif;
+}

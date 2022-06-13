@@ -1,7 +1,10 @@
+import React from 'react';
+
 const App = function () {
     return (
-        <div className='App'>
-            <header className='App-header'></header>
+        <div className='app'>
+            <header className='app-header'></header>
+            <main className='app-main'></main>
         </div>
     );
 };

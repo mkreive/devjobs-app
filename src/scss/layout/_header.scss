@@ -1,0 +1,18 @@
+.app-header {
+    width: 70vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid $color-neutral-light-grayish-blue;
+    padding-bottom: 1rem;
+
+    @include respond(tab-land) {
+        width: 75vw;
+    }
+    @include respond(tab-port) {
+        width: 80vw;
+    }
+    @include respond(phone) {
+        width: 100vw;
+    }
+}
