@@ -22,11 +22,13 @@ const Header = function () {
                     className='input input-title'
                     placeholder='Filter by title, companies, expertise...'
                 />
+                <hr className='line' />
                 <input type='text' className='input input-location' placeholder='Filter by location...' />
-                <div>
-                    <div className='checkbox'></div>
-                    <div className='text-black'></div>
-                    <button className='btn'></button>
+                <hr className='line' />
+                <div className='input-submit'>
+                    <div className='checkbox checked'></div>
+                    <div className='text text-black'>Full time only</div>
+                    <button className='btn'>Search</button>
                 </div>
             </div>
         </div>

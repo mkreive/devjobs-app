@@ -36,12 +36,14 @@
         position: absolute;
         z-index: 99;
         width: 70vw;
-        height: 13vh;
-        top: 20vh;
+        height: 11vh;
+        top: 21vh;
         background-color: $color-white;
         border-radius: 1rem;
         padding: 3rem;
         display: flex;
         justify-content: space-between;
+        border-bottom: 3px solid $color-background-darker-gray;
+        align-items: center;
     }
 }

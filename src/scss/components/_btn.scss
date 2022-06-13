@@ -1,0 +1,14 @@
+.btn {
+    margin-left: auto;
+    width: 13rem;
+    height: 5rem;
+    background-color: $color-accent-purple;
+    border-radius: 0.6rem;
+    border: none;
+    color: $color-white;
+    font-size: $font-size-main;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
