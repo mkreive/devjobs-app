@@ -6,7 +6,7 @@ const Header = function () {
         <div className='header'>
             <div className='header-top'>
                 <div className='header-top__container'>
-                    <img className='logo'></img>
+                    <div className='logo'></div>
                     <div className='theme-switch'>
                         <div className='theme-switch__sun'></div>
                         <div className='theme-switch__bar'>
@@ -26,7 +26,7 @@ const Header = function () {
                 <input type='text' className='input input-location' placeholder='Filter by location...' />
                 <hr className='line' />
                 <div className='input-submit'>
-                    <div className='checkbox checked'></div>
+                    <div className='checkbox'></div>
                     <div className='text text-black'>Full time only</div>
                     <button className='btn'>Search</button>
                 </div>

@@ -1,8 +1,9 @@
 .theme-switch {
     width: 10%;
-    height: 9%;
+    height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    align-items: center;
 
     :hover {
         cursor: pointer;
@@ -24,19 +25,19 @@
     }
     &__bar {
         z-index: 10;
-        width: 40%;
-        height: 100%;
+        width: 5.5rem;
+        height: 2.5rem;
         background-color: $color-white;
         border-radius: 2rem;
         margin: 0 1.5rem;
-        padding: 0.3rem 0.5rem;
+        padding: 0.3rem 0.4rem;
 
         &-circle {
             z-index: 99;
             background-color: $color-accent-purple;
-            width: 42%;
-            height: 98%;
-            border-radius: 50rem;
+            width: 45%;
+            height: 100%;
+            border-radius: 100%;
         }
     }
 }
