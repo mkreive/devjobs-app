@@ -8,6 +8,7 @@ const App = function () {
     return (
         <div className='app'>
             <Header />
+
             <Routes>
                 <Route path='/' element={<Navigate to='/home' />} />
                 <Route path='/home' element={<Main />} />

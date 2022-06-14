@@ -8,10 +8,6 @@
     border-radius: 5%;
     padding: 0 3rem 4rem 3rem;
 
-    &:hover {
-        cursor: pointer;
-    }
-
     @include respond(tab-port) {
         width: 47%;
     }

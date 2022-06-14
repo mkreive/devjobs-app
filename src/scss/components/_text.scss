@@ -28,4 +28,9 @@
         margin: 0 1rem;
         font-weight: $font-weight-heavy;
     }
+    &-link {
+        &:hover {
+            cursor: pointer;
+        }
+    }
 }

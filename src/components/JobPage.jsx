@@ -6,7 +6,7 @@ const JobPage = function (props) {
     // navigate(-1);
 
     return (
-        <div className='main'>
+        <div className='main-job'>
             <div className='banner'>
                 <div className='banner-logo'></div>
                 <div className='banner__info-company'>
@@ -15,7 +15,7 @@ const JobPage = function (props) {
                 </div>
                 <button className='btn btn-light'>Company Site</button>
             </div>
-            <div className='card'>
+            <div className='job'>
                 <div className='card__text-group'>
                     <div className='text-gray'>5h ago</div>
                     <div className='text-gray text-dot'>&#8226;</div>
