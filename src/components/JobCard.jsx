@@ -6,7 +6,10 @@ const JobCard = function (props) {
 
     return (
         <div className='card'>
-            <span className='card__logo'></span>
+            <span
+                className='card__logo'
+                style={{ backgroundImage: `url(${job.logo})`, backgroundColor: `${job.logoBackground}` }}
+            ></span>
             <div className='card__text-group'>
                 <div className='text-gray'>{job.postedAt}</div>
                 <div className='text-gray text-dot'>&#8226;</div>
