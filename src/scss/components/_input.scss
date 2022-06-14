@@ -7,11 +7,11 @@
     color: $color-black;
 
     &-title {
-        width: 45%;
+        width: 43%;
         background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-search_xdv0bc.svg');
         background-repeat: no-repeat;
         background-position: 0% 50%;
-        padding-left: 5rem;
+        padding-left: 4rem;
         overflow: hidden;
     }
     &-location {
@@ -19,12 +19,12 @@
         background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-location_ofhuzm.svg');
         background-repeat: no-repeat;
         background-position: 3% 50%;
-        padding-left: 5rem;
+        padding-left: 4rem;
         overflow: hidden;
     }
     &-submit {
         padding-left: 1rem;
-        width: 30%;
+        width: 32%;
         display: flex;
         justify-content: flex-start;
         align-items: center;

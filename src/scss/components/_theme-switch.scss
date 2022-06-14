@@ -1,5 +1,5 @@
 .theme-switch {
-    width: 10%;
+    width: 50%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
@@ -10,14 +10,14 @@
     }
 
     &__sun {
-        width: 20%;
+        min-width: 3rem;
         height: 100%;
         background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102842/DevJobsApp/icon-sun_kosgz4.svg');
         background-repeat: no-repeat;
         background-position: center;
     }
     &__moon {
-        width: 20%;
+        min-width: 3rem;
         height: 100%;
         background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-moon_l1ltzz.svg');
         background-repeat: no-repeat;
@@ -26,10 +26,10 @@
     &__bar {
         z-index: 10;
         width: 5.5rem;
-        height: 2.5rem;
+        height: 2.7rem;
         background-color: $color-white;
         border-radius: 2rem;
-        margin: 0 1.5rem;
+        margin: 0 0.5rem;
         padding: 0.3rem 0.4rem;
 
         &-circle {
