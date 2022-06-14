@@ -4,18 +4,28 @@
         font-size: $font-size-medium;
         font-weight: $font-weight-heavy;
     }
+    &-bold-big {
+        color: $color-black;
+        font-size: $font-size-big;
+        font-weight: $font-weight-heavy;
+        margin-bottom: 0.8rem;
+    }
     &-black {
         color: $color-black;
         font-size: $font-size-main;
     }
     &-gray {
-        font-size: 1rem;
         color: $color-background-dark-gray;
-        font-size: $font-size-main;
+        font-size: $font-size-medium;
     }
     &-purple {
+        margin-top: 4rem;
         color: $color-accent-purple;
         font-size: $font-size-small;
+        font-weight: $font-weight-heavy;
+    }
+    &-dot {
+        margin: 0 1rem;
         font-weight: $font-weight-heavy;
     }
 }

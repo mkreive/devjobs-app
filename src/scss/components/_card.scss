@@ -1,23 +1,36 @@
 .card {
-    width: 30%;
-    height: 30vh;
+    display: grid;
+    align-items: start;
+    width: 32%;
+    min-height: auto;
     background-color: $color-white;
-    margin-bottom: 8rem;
-    border-radius: 3%;
-    padding: 4rem 3rem 3rem 3rem;
+    margin-bottom: 6rem;
+    border-radius: 5%;
+    padding: 0 3rem 4rem 3rem;
+
+    @include respond(tab-port) {
+        width: 47%;
+    }
 
     &__logo {
         position: relative;
-        top: -9rem;
+        top: -40%;
         background-image: url('https://res.cloudinary.com/kreiva/image/upload/v1655102872/DevJobsApp/creative_cdv7ub.svg');
         background-color: rgb(74, 31, 65);
         background-repeat: no-repeat;
         background-position: center;
-        width: 20%;
-        height: 32%;
+        width: 6rem;
+        height: 6rem;
         border-radius: 33%;
+
+        @include respond(tab-port) {
+            width: 8rem;
+            height: 8rem;
+            top: -40%;
+        }
     }
     &__text-group {
         display: flex;
+        margin-bottom: 0.8rem;
     }
 }
