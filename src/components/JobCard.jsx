@@ -1,10 +1,12 @@
 import React from 'react';
+// import { Link } from 'react-router-dom';
 import '../index.scss';
 
 const JobCard = function (props) {
     const job = props.job;
 
     return (
+        // <Link to={`${job.id}`}>
         <div className='card'>
             <span
                 className='card__logo'
@@ -19,6 +21,7 @@ const JobCard = function (props) {
             <div className='text-gray'>{job.company}</div>
             <div className='text-purple'>{job.location}</div>
         </div>
+        // </Link>
     );
 };
 
