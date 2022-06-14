@@ -11,7 +11,7 @@ const Main = function () {
             <JobCard />
             <JobCard />
             <JobCard />
-            <JobCard />
+            <button className='btn btn-load'>Load more</button>
         </div>
     );
 };
