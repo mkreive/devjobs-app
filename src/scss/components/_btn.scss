@@ -1,15 +1,24 @@
 .btn {
     margin-left: auto;
-    width: 8rem;
-    height: 3.5rem;
+    width: auto;
+    padding: 1rem 2rem;
     background-color: $color-accent-purple;
-    border-radius: 0.6rem;
+    border-radius: $border-radius-very-small;
     border: none;
     color: $color-white;
     font-size: $font-size-main;
 
     &:hover {
         cursor: pointer;
+    }
+
+    &-light {
+        background-color: $color-accent-purple-light;
+        color: $color-accent-purple;
+        font-weight: $font-weight-heavy;
+        font-size: $font-size-small;
+        width: auto;
+        padding: 1rem 3rem;
     }
 
     &-load {

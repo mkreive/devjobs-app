@@ -10,8 +10,8 @@ const JobPage = function (props) {
             <div className='banner'>
                 <div className='banner-logo'></div>
                 <div className='banner__info-company'>
-                    <div className='text-bold'>Compny name</div>
-                    <div className='text-gray'>www.lilia.com</div>
+                    <h2 className='text-title-big'>Compny name</h2>
+                    <div className='text-gray-big'>www.lilia.com</div>
                 </div>
                 <button className='btn btn-light'>Company Site</button>
             </div>
@@ -21,7 +21,7 @@ const JobPage = function (props) {
                     <div className='text-gray text-dot'>&#8226;</div>
                     <div className='text-gray'>Contract</div>
                 </div>
-                <div className='text-bold-big'>Engineer</div>
+                <h1 className='text-title-very-big'>Engineer</h1>
             </div>
         </div>
     );

@@ -1,4 +1,17 @@
 .text {
+    &-title-big {
+        color: $color-black;
+        font-size: $font-size-very-big;
+        font-weight: $font-weight-heavy;
+        margin-bottom: 1rem;
+    }
+    &-title-very-big {
+        color: $color-black;
+        font-size: $font-size-huge;
+        font-weight: $font-weight-heavy;
+        margin-bottom: 0.8rem;
+    }
+
     &-bold {
         color: $color-black;
         font-size: $font-size-medium;
@@ -17,6 +30,10 @@
     &-gray {
         color: $color-background-dark-gray;
         font-size: $font-size-medium;
+    }
+    &-gray-big {
+        color: $color-background-dark-gray;
+        font-size: $font-size-big;
     }
     &-purple {
         margin-top: 4rem;
