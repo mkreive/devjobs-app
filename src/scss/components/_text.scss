@@ -41,6 +41,11 @@
         font-size: $font-size-small;
         font-weight: $font-weight-heavy;
     }
+    &-purple-nomargin {
+        color: $color-accent-purple;
+        font-size: $font-size-small;
+        font-weight: $font-weight-heavy;
+    }
     &-dot {
         margin: 0 1rem;
         font-weight: $font-weight-heavy;
@@ -49,5 +54,9 @@
         &:hover {
             cursor: pointer;
         }
+    }
+    &-block {
+        line-height: 3rem;
+        margin-bottom: 5rem;
     }
 }
