@@ -4,6 +4,8 @@
     background-color: $color-background-darker-gray;
     margin-right: 1rem;
     border-radius: 0.2rem;
+    background-repeat: no-repeat;
+    background-position: center;
 
     &:hover {
         cursor: pointer;

@@ -1,25 +1,34 @@
-import React, { Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import '../index.scss';
 import data from '../data.json';
 import JobCard from './JobCard';
 import SearchBar from './SearchBar';
 
 const Main = function () {
-    const jobs = data;
+    const allJobs = data;
+    const [jobs, setJobs] = useState(allJobs);
+
+    const filterHandler = function (props) {
+        const filteredByTime = props;
+        setJobs(filteredByTime);
+    };
+
     const loadMoreHandler = function () {
         console.log('load more');
     };
 
     return (
         <Fragment>
-            <SearchBar />
+            <SearchBar onSearch={filterHandler} currentJobs={jobs} />
             <div className='main'>
                 {jobs.map((job) => (
                     <JobCard key={job.id} job={job} />
                 ))}
-                <button className='btn btn-load' onClick={loadMoreHandler}>
-                    Load more
-                </button>
+                {jobs.length > 6 && (
+                    <button className='btn btn-load' onClick={loadMoreHandler}>
+                        Load more
+                    </button>
+                )}
             </div>
         </Fragment>
     );
