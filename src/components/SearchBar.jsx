@@ -12,10 +12,10 @@ const SearchBar = function (props) {
         if (!fullTimeChecked) {
             setFullTimeChecked(url);
             const fullTimeJobs = filterByFullTime(jobs);
-            props.onSearch(fullTimeJobs);
+            props.onSearch(fullTimeJobs, { type: 'Full Time' });
         } else {
             setFullTimeChecked('');
-            // filter all jobs
+            props.onSearch('', { type: 'All' });
         }
     };
 

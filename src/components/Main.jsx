@@ -8,9 +8,15 @@ const Main = function () {
     const allJobs = data;
     const [jobs, setJobs] = useState(allJobs);
 
-    const filterHandler = function (props) {
-        const filteredByTime = props;
-        setJobs(filteredByTime);
+    const filterHandler = function (props, type) {
+        const searchType = type.type;
+        const filteredJobs = props;
+
+        if (searchType === 'Full Time') {
+            setJobs(filteredJobs);
+        } else if (searchType === 'All') {
+            setJobs(allJobs);
+        }
     };
 
     const loadMoreHandler = function () {
@@ -24,12 +30,10 @@ const Main = function () {
                 {jobs.map((job) => (
                     <JobCard key={job.id} job={job} />
                 ))}
-                {jobs.length > 6 && (
-                    <button className='btn btn-load' onClick={loadMoreHandler}>
-                        Load more
-                    </button>
-                )}
             </div>
+            <button className='btn btn-load' onClick={loadMoreHandler}>
+                Load more
+            </button>
         </Fragment>
     );
 };
