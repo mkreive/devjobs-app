@@ -38,18 +38,62 @@ const JobPage = function (props) {
                         unde minima quas quae temporibus molestiae hic voluptate laboriosam obcaecati?
                     </p>
                     <h2 className='text-title-big'>Requirements</h2>
-                    <p className='text-gray-big text-block'>
+                    <div className='text-gray-big text-block'>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit non assumenda, ex nulla
                         tenetur possimus aspernatur nihil consectetur minus molestias enim iusto nam praesentium
                         repellat, facere quasi dolor dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Recusandae distinctio, veniam beatae qui.
-                    </p>
+                        <div className='text-list'>
+                            <span className='text-star'>*</span>
+                            <span className='text-gray-big'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
+                            </span>
+                        </div>
+                        <div className='text-list'>
+                            <span className='text-star'>*</span>
+                            <span className='text-gray-big'>Facere quasi dolor dignissimos. </span>
+                        </div>
+                        <div className='text-list'>
+                            <span className='text-star'>*</span>
+                            <span className='text-gray-big'>
+                                Temporibus molestiae hic voluptate laboriosam obcaecati.{' '}
+                            </span>
+                        </div>
+                        <div className='text-list'>
+                            <span className='text-star'>*</span>
+                            <span className='text-gray-big'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
+                            </span>
+                        </div>
+                    </div>
                     <h2 className='text-title-big'>What You Will Do</h2>
-                    <p className='text-block text-gray-big'>
+                    <div className='text-block text-gray-big'>
                         Labore velit non assumenda, ex nulla tenetur possimus aspernatur nihil consectetur minus
                         molestias enim iusto nam praesentium repellat, facere quasi dolor dignissimos. Lorem ipsum dolor
                         sit amet consectetur adipisicing elit.
-                    </p>
+                        <div className='text-list'>
+                            <span className='text-star'>1</span>
+                            <span className='text-gray-big'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
+                            </span>
+                        </div>
+                        <div className='text-list'>
+                            <span className='text-star'>2</span>
+                            <span className='text-gray-big'>Facere quasi dolor dignissimos. </span>
+                        </div>
+                        <div className='text-list'>
+                            <span className='text-star'>3</span>
+                            <span className='text-gray-big'>
+                                Temporibus molestiae hic voluptate laboriosam obcaecati.{' '}
+                            </span>
+                        </div>
+                        <div className='text-list'>
+                            <span className='text-star'>4</span>
+                            <span className='text-gray-big'>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

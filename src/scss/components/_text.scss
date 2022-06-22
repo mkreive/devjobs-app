@@ -55,8 +55,17 @@
             cursor: pointer;
         }
     }
+    &-star {
+        color: $color-accent-purple;
+        font-weight: $font-weight-heavy;
+        font-size: $font-size-big;
+        margin-right: 3rem;
+    }
     &-block {
         line-height: 3rem;
-        margin-bottom: 5rem;
+        margin-bottom: 3.5rem;
+    }
+    &-list {
+        margin-bottom: 2rem;
     }
 }
