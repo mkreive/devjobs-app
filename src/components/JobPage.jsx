@@ -43,6 +43,7 @@ const JobPage = function (props) {
                         tenetur possimus aspernatur nihil consectetur minus molestias enim iusto nam praesentium
                         repellat, facere quasi dolor dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Recusandae distinctio, veniam beatae qui.
+                        <div className='text-empty-line'></div>
                         <div className='text-list'>
                             <span className='text-star'>*</span>
                             <span className='text-gray-big'>
@@ -71,6 +72,7 @@ const JobPage = function (props) {
                         Labore velit non assumenda, ex nulla tenetur possimus aspernatur nihil consectetur minus
                         molestias enim iusto nam praesentium repellat, facere quasi dolor dignissimos. Lorem ipsum dolor
                         sit amet consectetur adipisicing elit.
+                        <div className='text-empty-line'></div>
                         <div className='text-list'>
                             <span className='text-star'>1</span>
                             <span className='text-gray-big'>
@@ -96,6 +98,15 @@ const JobPage = function (props) {
                     </div>
                 </div>
             </div>
+            <footer className='main-footer'>
+                <div className='banner'>
+                    <div className='banner__info-company'>
+                        <h2 className='text-title-big'>Software engineer</h2>
+                        <div className='text-gray-big'>Scoot</div>
+                    </div>
+                    <button className='btn'>Apply Now</button>
+                </div>
+            </footer>
         </div>
     );
 };

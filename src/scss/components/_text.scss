@@ -63,9 +63,13 @@
     }
     &-block {
         line-height: 3rem;
-        margin-bottom: 3.5rem;
+        margin-bottom: 4rem;
     }
     &-list {
         margin-bottom: 2rem;
+    }
+    &-empty-line {
+        height: 2rem;
+        width: auto;
     }
 }
