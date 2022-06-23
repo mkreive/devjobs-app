@@ -1,21 +1,18 @@
 import React, { useState } from 'react';
+// import { useSelector } from 'react-redux';
 import '../index.scss';
-import { filterByFullTime } from './helperFunctions';
 
 const url = `url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-check_b1gwus.svg')`;
 
 const SearchBar = function (props) {
+    // const jobs = useSelector((state) => state);
     const [fullTimeChecked, setFullTimeChecked] = useState('');
-    const jobs = props.currentJobs;
 
     const fullTimeCheckboxHandler = function () {
         if (!fullTimeChecked) {
             setFullTimeChecked(url);
-            const fullTimeJobs = filterByFullTime(jobs);
-            props.onSearch(fullTimeJobs, { type: 'Full Time' });
         } else {
             setFullTimeChecked('');
-            props.onSearch('', { type: 'All' });
         }
     };
 

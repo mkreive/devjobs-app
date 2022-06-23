@@ -1,7 +1,7 @@
-import { configureStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
 import data from '../data.json';
 
-const searchReducer = function (state = data, action) {
+const filtersReducer = function (state = data, action) {
     if (action.type === 'contract') {
         return data.filter((job) => job.contract === 'Full Time');
     }
@@ -15,6 +15,11 @@ const searchReducer = function (state = data, action) {
     return state;
 };
 
-const store = configureStore(searchReducer);
+export const store = configureStore({
+    reducer: {
+        jobs: data,
+        filters: filtersReducer,
+    },
+});
 
 export default store;
