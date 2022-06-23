@@ -11,6 +11,9 @@ const filtersReducer = function (state = data, action) {
     if (action.type === 'input') {
         return data.filter((job) => job.position === 'Senior Software Engineer');
     }
+    if (action.type === 'all') {
+        return data;
+    }
 
     return state;
 };

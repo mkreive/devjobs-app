@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
-// import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import '../index.scss';
 
 const url = `url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-check_b1gwus.svg')`;
 
-const SearchBar = function (props) {
-    // const jobs = useSelector((state) => state);
+const SearchBar = function () {
+    const dispatch = useDispatch();
     const [fullTimeChecked, setFullTimeChecked] = useState('');
 
-    const fullTimeCheckboxHandler = function () {
+    const fullTimeHandler = function () {
         if (!fullTimeChecked) {
             setFullTimeChecked(url);
+            dispatch({ type: 'contract' });
         } else {
             setFullTimeChecked('');
+            dispatch({ type: 'all' });
         }
     };
 
@@ -23,11 +25,7 @@ const SearchBar = function (props) {
             <input type='text' className='input input-location' placeholder='Filter by location...' />
             <hr className='line' />
             <div className='input-submit'>
-                <div
-                    className='checkbox'
-                    onClick={fullTimeCheckboxHandler}
-                    style={{ backgroundImage: fullTimeChecked }}
-                ></div>
+                <div className='checkbox' onClick={fullTimeHandler} style={{ backgroundImage: fullTimeChecked }}></div>
                 <div className='text text-bold'>Full time only</div>
                 <button className='btn'>Search</button>
             </div>
