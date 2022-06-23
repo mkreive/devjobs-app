@@ -35,6 +35,7 @@ Users should be able to:
 
 -   Sass
 -   [React](https://reactjs.org/) - JS library
+-   Redux
 
 ### What I learned
 
