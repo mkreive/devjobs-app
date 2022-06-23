@@ -1,32 +1,30 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 import data from '../data.json';
 
-const filtersReducer = function (state = data, action) {
-    if (action.type === 'contract') {
-        if (action.time === 'full') return data.filter((job) => job.contract === 'Full Time');
-        if (action.time === 'part') return data.filter((job) => job.contract === 'Part Time');
-        if (action.time === 'freelance') return data.filter((job) => job.contract === 'Freelance');
-        return data;
-    }
-    if (action.type === 'location') {
-        return data.filter((job) => job.location === 'United Kingdom');
-    }
-    if (action.type === 'input') {
-        const inputValue = action.input;
+const initialState = data;
 
-        return data.filter((job) => job.position === inputValue || job.company === inputValue);
-    }
-    if (action.type === 'all') {
-        return data;
-    }
-
-    return state;
-};
+const filterSlice = createSlice({
+    name: 'filter',
+    initialState,
+    reducers: {
+        contract(state) {
+            state.filter((job) => job.contract === 'Full Time');
+        },
+        location(state) {
+            state.filter((job) => job.location === 'United Kingdom');
+        },
+        title(state, action) {
+            const inputValue = action.input;
+            state.filter((job) => job.position === inputValue || job.company === inputValue);
+        },
+        search() {},
+    },
+});
 
 export const store = configureStore({
     reducer: {
         jobs: data,
-        filters: filtersReducer,
+        filters: filterSlice.reducer,
     },
 });
 
