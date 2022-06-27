@@ -11,24 +11,37 @@ const filterSlice = createSlice({
         all() {
             return initialState;
         },
+        title(state, action) {
+            const inputValue = action.payload.toLowerCase();
+            return state.filter((job) => job.position.toLowerCase().includes(inputValue));
+        },
+        location(state, action) {
+            const inputValue = action.payload.toLowerCase();
+            return state.filter((job) => job.location.toLowerCase().trim().includes(inputValue));
+        },
         contract(state) {
             return state.filter((job) => job.contract === 'Full Time');
         },
-        location(state, action) {
-            const inputValue = action.payload;
-            return state.filter((job) => job.location === inputValue);
-        },
-        title(state, action) {
-            const inputValue = action.payload;
-            return state.filter((job) => job.position === inputValue || job.company === inputValue);
-        },
         submit(state, action) {
-            const location = action.payload.enteredLocation;
-            const title = action.payload.enteredTitle;
-            // const fullTime = action.payload.checkamark;
+            const location = action.payload.enteredLocation.toLowerCase();
+            const title = action.payload.enteredTitle.toLowerCase();
+            const fullTime = action.payload.checkamark;
 
             if (!location.trim() && !title.trim()) {
                 console.log('empty inputs');
+            }
+            if (fullTime) {
+                state.filter((job) => job.contract === 'Full Time');
+            }
+            if (location.trim() !== ' ') {
+                state.filter((job) => job.location.toLowerCase().trim().includes(location));
+            }
+            if (title.trim() !== ' ') {
+                const position = state.filter((job) => job.position.toLowerCase().trim().includes(location));
+
+                if (!position) {
+                    state.filter((job) => job.position.toLowerCase().trim().includes(location));
+                }
             }
         },
     },
