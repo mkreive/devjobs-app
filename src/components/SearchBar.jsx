@@ -8,6 +8,8 @@ const url = `url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/Dev
 const SearchBar = function () {
     const dispatch = useDispatch();
     const [fullTimeChecked, setFullTimeChecked] = useState('');
+    const [enteredLocation, setEnteredLocation] = useState('');
+    const [enteredTitle, setEnteredTitle] = useState('');
 
     const fullTimeHandler = function () {
         if (!fullTimeChecked) {
@@ -19,43 +21,45 @@ const SearchBar = function () {
         }
     };
 
-    const locationInputHandler = function () {
-        const inputValue = 'United Kingdom';
+    const locationInputHandler = function (event) {
+        const inputValue = setEnteredLocation(event.target.value);
         dispatch(filterActions.location(inputValue));
     };
 
-    const titleInputHandler = function () {
-        const inputValue = 'Junior Full-Stack Developer';
+    const titleInputHandler = function (event) {
+        const inputValue = setEnteredTitle(event.target.value);
         dispatch(filterActions.title(inputValue));
     };
-    const searchHandler = function () {
-        console.log('search btn clicked');
+    const submitHandler = function (event) {
+        event.preventDefault();
+        console.log(enteredLocation);
+        console.log(enteredTitle);
     };
 
     return (
-        <div className='header-search'>
+        <form className='header-search' onSubmit={submitHandler}>
             <input
                 type='text'
+                id='title'
                 className='input input-title'
                 placeholder='Filter by title, companies, expertise...'
-                onClick={titleInputHandler}
+                onChange={titleInputHandler}
             />
             <hr className='line' />
             <input
                 type='text'
+                id='location '
                 className='input input-location'
                 placeholder='Filter by location...'
-                onClick={locationInputHandler}
+                onChange={locationInputHandler}
             />
             <hr className='line' />
             <div className='input-submit'>
                 <div className='checkbox' onClick={fullTimeHandler} style={{ backgroundImage: fullTimeChecked }}></div>
                 <div className='text text-bold'>Full time only</div>
-                <button className='btn' onClick={searchHandler}>
-                    Search
-                </button>
+                <button className='btn'>Search</button>
             </div>
-        </div>
+        </form>
     );
 };
 export default SearchBar;
