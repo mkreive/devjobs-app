@@ -4,32 +4,30 @@ import data from '../data.json';
 const initialState = data;
 
 const filterSlice = createSlice({
-    name: 'filter',
+    name: 'filters',
     initialState,
     reducers: {
-        all(state) {
-            return state;
+        all() {
+            return initialState;
         },
         contract(state) {
-            state.filter((job) => job.contract === 'full');
+            return state.filter((job) => job.contract === 'Full Time');
         },
-        location(state) {
-            state.filter((job) => job.location === 'United Kingdom');
+        location(state, action) {
+            const inputValue = action.payload;
+            return state.filter((job) => job.location === inputValue);
         },
         title(state, action) {
-            const inputValue = action.input;
-            state.filter((job) => job.position === inputValue || job.company === inputValue);
+            const inputValue = action.payload;
+            return state.filter((job) => job.position === inputValue || job.company === inputValue);
         },
         search() {},
     },
 });
 
-export const store = configureStore({
-    reducer: {
-        jobs: initialState,
-        filters: filterSlice.reducer,
-    },
+const store = configureStore({
+    reducer: { filters: filterSlice.reducer },
 });
 
-export const filerActions = filterSlice.actions;
+export const filterActions = filterSlice.actions;
 export default store;

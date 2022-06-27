@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import '../index.scss';
-import filterActions from '../store/store';
+import { filterActions } from '../store/store';
 
 const url = `url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-check_b1gwus.svg')`;
 
@@ -15,18 +15,18 @@ const SearchBar = function () {
             dispatch(filterActions.contract());
         } else {
             setFullTimeChecked('');
-            dispatch({ type: 'all' });
+            dispatch(filterActions.all());
         }
     };
 
     const locationInputHandler = function () {
         const inputValue = 'United Kingdom';
-        dispatch({ type: 'location', input: inputValue });
+        dispatch(filterActions.location(inputValue));
     };
 
     const titleInputHandler = function () {
         const inputValue = 'Junior Full-Stack Developer';
-        dispatch({ type: 'input', input: inputValue });
+        dispatch(filterActions.title(inputValue));
     };
     const searchHandler = function () {
         console.log('search btn clicked');
