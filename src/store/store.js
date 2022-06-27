@@ -1,4 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+
 import data from '../data.json';
 
 const initialState = data;
@@ -21,7 +22,15 @@ const filterSlice = createSlice({
             const inputValue = action.payload;
             return state.filter((job) => job.position === inputValue || job.company === inputValue);
         },
-        search() {},
+        submit(state, action) {
+            const location = action.payload.enteredLocation;
+            const title = action.payload.enteredTitle;
+            // const fullTime = action.payload.checkamark;
+
+            if (!location.trim() && !title.trim()) {
+                console.log('empty inputs');
+            }
+        },
     },
 });
 
