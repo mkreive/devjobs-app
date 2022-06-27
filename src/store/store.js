@@ -7,8 +7,11 @@ const filterSlice = createSlice({
     name: 'filter',
     initialState,
     reducers: {
+        all(state) {
+            return state;
+        },
         contract(state) {
-            state.filter((job) => job.contract === 'Full Time');
+            state.filter((job) => job.contract === 'full');
         },
         location(state) {
             state.filter((job) => job.location === 'United Kingdom');
@@ -23,9 +26,10 @@ const filterSlice = createSlice({
 
 export const store = configureStore({
     reducer: {
-        jobs: data,
+        jobs: initialState,
         filters: filterSlice.reducer,
     },
 });
 
+export const filerActions = filterSlice.actions;
 export default store;

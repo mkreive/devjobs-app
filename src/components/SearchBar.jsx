@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import '../index.scss';
+import filterActions from '../store/store';
 
 const url = `url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/DevJobsApp/icon-check_b1gwus.svg')`;
 
@@ -11,7 +12,7 @@ const SearchBar = function () {
     const fullTimeHandler = function () {
         if (!fullTimeChecked) {
             setFullTimeChecked(url);
-            dispatch({ type: 'contract', time: 'full' });
+            dispatch(filterActions.contract());
         } else {
             setFullTimeChecked('');
             dispatch({ type: 'all' });
