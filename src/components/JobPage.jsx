@@ -1,108 +1,66 @@
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const JobPage = function (props) {
-    // const navigate = useNavigate();
-    // navigate(-1);
-    console.log(props);
+    const location = useLocation();
+    const company = location.state;
 
     return (
         <div className='main-job'>
             <div className='banner'>
                 <div className='banner-logo'></div>
                 <div className='banner__info-company'>
-                    <h2 className='text-title-big'>Compny name</h2>
-                    <div className='text-gray-big'>www.lilia.com</div>
+                    <h2 className='text-title-big'>{company.company}</h2>
+                    <div className='text-gray-big'>{company.company}</div>
                 </div>
-                <button className='btn btn-light'>Company Site</button>
+                <a href={company.website} className='btn btn-light'>
+                    Company Site
+                </a>
             </div>
             <div className='job'>
                 <div className='job__header'>
                     <div className='job__header-text'>
                         <div className='card__text-group'>
-                            <div className='text-gray'>5h ago</div>
+                            <div className='text-gray'>{company.postedAt}</div>
                             <div className='text-gray text-dot'>&#8226;</div>
-                            <div className='text-gray'>Full time</div>
+                            <div className='text-gray'>{company.contract}</div>
                         </div>
-                        <h1 className='text-title-very-big'>Senior Software Engineer</h1>
-                        <div className='text-purple-nomargin'>United Kingdom</div>
+                        <h1 className='text-title-very-big'>{company.position}</h1>
+                        <div className='text-purple-nomargin'>{company.location}</div>
                     </div>
                     <button className='btn'>Apply Now</button>
                 </div>
                 <div className='job__body'>
-                    <p className='text-gray-big text-block'>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit non assumenda, ex nulla
-                        tenetur possimus aspernatur nihil consectetur minus molestias enim iusto nam praesentium
-                        repellat, facere quasi dolor dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Recusandae distinctio, veniam beatae qui doloremque at facere sed accusamus culpa quaerat
-                        unde minima quas quae temporibus molestiae hic voluptate laboriosam obcaecati?
-                    </p>
+                    <p className='text-gray-big text-block'>{company.description}</p>
                     <h2 className='text-title-big'>Requirements</h2>
                     <div className='text-gray-big text-block'>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore velit non assumenda, ex nulla
-                        tenetur possimus aspernatur nihil consectetur minus molestias enim iusto nam praesentium
-                        repellat, facere quasi dolor dignissimos. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Recusandae distinctio, veniam beatae qui.
+                        {company.requirements.content}
                         <div className='text-empty-line'></div>
-                        <div className='text-list'>
-                            <span className='text-star'>*</span>
-                            <span className='text-gray-big'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
-                            </span>
-                        </div>
-                        <div className='text-list'>
-                            <span className='text-star'>*</span>
-                            <span className='text-gray-big'>Facere quasi dolor dignissimos. </span>
-                        </div>
-                        <div className='text-list'>
-                            <span className='text-star'>*</span>
-                            <span className='text-gray-big'>
-                                Temporibus molestiae hic voluptate laboriosam obcaecati.{' '}
-                            </span>
-                        </div>
-                        <div className='text-list'>
-                            <span className='text-star'>*</span>
-                            <span className='text-gray-big'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
-                            </span>
-                        </div>
+                        {company.requirements.items.forEach((item) => {
+                            <div className='text-list'>
+                                <span className='text-star'>*</span>
+                                <span className='text-gray-big'>{item}</span>
+                            </div>;
+                        })}
                     </div>
                     <h2 className='text-title-big'>What You Will Do</h2>
                     <div className='text-block text-gray-big'>
-                        Labore velit non assumenda, ex nulla tenetur possimus aspernatur nihil consectetur minus
-                        molestias enim iusto nam praesentium repellat, facere quasi dolor dignissimos. Lorem ipsum dolor
-                        sit amet consectetur adipisicing elit.
+                        {company.role.content}
                         <div className='text-empty-line'></div>
-                        <div className='text-list'>
-                            <span className='text-star'>1</span>
-                            <span className='text-gray-big'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
-                            </span>
-                        </div>
-                        <div className='text-list'>
-                            <span className='text-star'>2</span>
-                            <span className='text-gray-big'>Facere quasi dolor dignissimos. </span>
-                        </div>
-                        <div className='text-list'>
-                            <span className='text-star'>3</span>
-                            <span className='text-gray-big'>
-                                Temporibus molestiae hic voluptate laboriosam obcaecati.{' '}
-                            </span>
-                        </div>
-                        <div className='text-list'>
-                            <span className='text-star'>4</span>
-                            <span className='text-gray-big'>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.{' '}
-                            </span>
-                        </div>
+                        {company.role.items.forEach((item) => {
+                            <div className='text-list'>
+                                <span className='text-star'>1</span>
+                                <span className='text-gray-big'>{item} </span>
+                            </div>;
+                        })}
                     </div>
                 </div>
             </div>
             <footer className='main-footer'>
                 <div className='banner'>
                     <div className='banner__info-company'>
-                        <h2 className='text-title-big'>Software engineer</h2>
-                        <div className='text-gray-big'>Scoot</div>
+                        <h2 className='text-title-big'>{company.position}</h2>
+                        <div className='text-gray-big'>{company.company}</div>
                     </div>
                     <button className='btn'>Apply Now</button>
                 </div>

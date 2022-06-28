@@ -16,7 +16,7 @@ const JobCard = function (props) {
                 className='card__logo'
                 style={{ backgroundImage: `url(${job.logo})`, backgroundColor: `${job.logoBackground}` }}
             ></span>
-            <Link className='text-link' style={linkStyle} to={`${job.position}`}>
+            <Link className='text-link' style={linkStyle} to={`${job.id}`} state={job.id}>
                 <div className='card__text-group'>
                     <div className='text-gray'>{job.postedAt}</div>
                     <div className='text-gray text-dot'>&#8226;</div>
