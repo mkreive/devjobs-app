@@ -72,7 +72,6 @@ const SearchBar = function () {
             <div className='input-submit'>
                 <div className='checkbox' onClick={fullTimeHandler} style={{ backgroundImage: fullTimeChecked }}></div>
                 <div className='text text-bold'>Full time only</div>
-                <button className='btn'>Search</button>
             </div>
         </form>
     );

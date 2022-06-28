@@ -13,7 +13,12 @@ const filterSlice = createSlice({
         },
         title(state, action) {
             const inputValue = action.payload.toLowerCase();
-            return state.filter((job) => job.position.toLowerCase().includes(inputValue));
+            return state.filter(
+                (job) =>
+                    job.position.toLowerCase().includes(inputValue) ||
+                    job.company.toLowerCase().includes(inputValue) ||
+                    job.requirements.content.toLowerCase().includes(inputValue)
+            );
         },
         location(state, action) {
             const inputValue = action.payload.toLowerCase();
