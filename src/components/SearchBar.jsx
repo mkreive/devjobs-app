@@ -14,21 +14,21 @@ const SearchBar = function () {
     const fullTimeHandler = function () {
         if (!fullTimeChecked) {
             setFullTimeChecked(url);
-            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: 'Full Time' }));
+            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: true }));
         } else {
             setFullTimeChecked('');
-            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: null }));
+            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: false }));
         }
     };
 
     const locationInputHandler = function (event) {
         setEnteredLocation(event.target.value);
-        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: null }));
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: false }));
     };
 
     const titleInputHandler = function (event) {
         setEnteredTitle(event.target.value);
-        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: null }));
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: false }));
     };
 
     return (
