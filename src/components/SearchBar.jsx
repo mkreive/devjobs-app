@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import '../index.scss';
 import { filterActions } from '../store/store';
@@ -10,70 +10,50 @@ const SearchBar = function () {
     const [fullTimeChecked, setFullTimeChecked] = useState('');
     const [enteredLocation, setEnteredLocation] = useState('');
     const [enteredTitle, setEnteredTitle] = useState('');
-    const locationRef = useRef();
-    const titleRef = useRef();
 
     const fullTimeHandler = function () {
         if (!fullTimeChecked) {
             setFullTimeChecked(url);
-            dispatch(filterActions.contract());
+            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: 'Full Time' }));
         } else {
             setFullTimeChecked('');
-            dispatch(filterActions.all());
+            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: null }));
         }
     };
 
     const locationInputHandler = function (event) {
         setEnteredLocation(event.target.value);
-        dispatch(filterActions.location(enteredLocation));
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: null }));
     };
 
     const titleInputHandler = function (event) {
         setEnteredTitle(event.target.value);
-        dispatch(filterActions.title(enteredTitle));
-    };
-    const submitHandler = function (event) {
-        event.preventDefault();
-        const enteredTitleValue = titleRef.current.value;
-        const enteredLocationValue = locationRef.current.value;
-        dispatch(
-            filterActions.submit({
-                enteredTitle: enteredTitleValue,
-                enteredLocation: enteredLocationValue,
-                checkamark: fullTimeChecked,
-            })
-        );
-        setEnteredLocation('');
-        setEnteredTitle('');
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: null }));
     };
 
     return (
-        <form className='header-search' onSubmit={submitHandler}>
+        <div className='header-search'>
             <input
                 type='text'
                 id='title'
-                ref={titleRef}
                 className='input input-title'
                 placeholder='Filter by title, companies, expertise...'
                 onChange={titleInputHandler}
-                value={enteredTitle}
             />
             <hr className='line' />
             <input
                 type='text'
                 id='location'
-                ref={locationRef}
                 className='input input-location'
                 placeholder='Filter by location...'
                 onChange={locationInputHandler}
-                value={enteredLocation}
             />
             <hr className='line' />
             <div className='input-submit'>
                 <div className='checkbox' onClick={fullTimeHandler} style={{ backgroundImage: fullTimeChecked }}></div>
                 <div className='text text-bold'>Full time only</div>
             </div>
-        </form>
+        </div>
     );
 };
 export default SearchBar;

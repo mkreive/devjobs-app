@@ -1,53 +1,27 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
-
 import data from '../data.json';
 
 const initialState = data;
-
 const filterSlice = createSlice({
     name: 'filters',
     initialState,
     reducers: {
-        all() {
-            return initialState;
-        },
-        title(state, action) {
-            const inputValue = action.payload.toLowerCase();
+        search(state, action) {
+            const locationInput = action.payload.location.toLowerCase();
+            const titleInput = action.payload.title.toLowerCase();
+            const checkmarkInput = action.payload.fullTime;
+
+            console.log(locationInput);
+            console.log(titleInput);
+            console.log(checkmarkInput);
+
             return state.filter(
                 (job) =>
-                    job.position.toLowerCase().includes(inputValue) ||
-                    job.company.toLowerCase().includes(inputValue) ||
-                    job.requirements.content.toLowerCase().includes(inputValue)
+                    job.company.toLowerCase().trim().includes(titleInput) ||
+                    job.position.toLowerCase().trim().includes(titleInput) ||
+                    job.location.toLowerCase().trim().includes(locationInput) ||
+                    job.contract === checkmarkInput
             );
-        },
-        location(state, action) {
-            const inputValue = action.payload.toLowerCase();
-            return state.filter((job) => job.location.toLowerCase().trim().includes(inputValue));
-        },
-        contract(state) {
-            return state.filter((job) => job.contract === 'Full Time');
-        },
-        submit(state, action) {
-            const location = action.payload.enteredLocation.toLowerCase();
-            const title = action.payload.enteredTitle.toLowerCase();
-            const fullTime = action.payload.checkamark;
-
-            if (!location.trim() && !title.trim()) {
-                console.log('empty inputs');
-            }
-            if (fullTime) {
-                state.filter((job) => job.contract === 'Full Time');
-            }
-            if (location.trim() !== ' ') {
-                state.filter((job) => job.location.toLowerCase().trim().includes(location));
-            }
-            if (title.trim() !== ' ') {
-                const position = state.filter((job) => job.position.toLowerCase().trim().includes(location));
-
-                if (!position) {
-                    state.filter((job) => job.position.toLowerCase().trim().includes(location));
-                }
-            }
         },
     },
 });
