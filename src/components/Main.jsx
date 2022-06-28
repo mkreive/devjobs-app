@@ -5,32 +5,26 @@ import JobCard from './JobCard';
 import SearchBar from './SearchBar';
 
 const Main = function () {
+    const imagePerRow = 6;
     const jobs = useSelector((state) => state.filters);
-    let [currPage, setCurrPage] = useState(1);
-    const loadMore = function (page) {
-        const jobsPerPage = 6;
-        return jobs.slice(0, page * jobsPerPage);
-    };
-
-    const [loadedJobs, setLoadedJobs] = useState(loadMore(currPage));
-
-    const loadMoreHandler = function () {
-        setCurrPage(currPage++);
-        setLoadedJobs(loadMore(currPage));
-        console.log(currPage);
+    const [next, setNext] = useState(imagePerRow);
+    const loadMoreHandler = () => {
+        setNext(next + imagePerRow);
     };
 
     return (
         <Fragment>
             <SearchBar />
             <div className='main'>
-                {loadedJobs.map((job) => (
+                {jobs?.slice(0, next)?.map((job) => (
                     <JobCard key={job.id} job={job} />
                 ))}
             </div>
-            <button className='btn btn-load' onClick={loadMoreHandler}>
-                Load more
-            </button>
+            {next < jobs?.length && (
+                <button className='btn btn-load' onClick={loadMoreHandler}>
+                    Load more
+                </button>
+            )}
         </Fragment>
     );
 };
