@@ -31,20 +31,18 @@
     }
     &__dropdown {
         position: absolute;
-        right: 38rem;
+        right: 47rem;
         top: 9rem;
         background-color: $color-white;
-        padding: 2rem 5rem;
+        padding: 1rem 4rem;
 
         &-row {
-            border-bottom: 1px solid $color-background-light-gray;
-            padding: 1rem;
-            margin-bottom: 1rem;
             width: 100%;
             font-family: inherit;
             font-size: $font-size-main;
             color: $color-background-dark-gray;
             list-style: none;
+            margin-bottom: 1.5rem;
 
             &:hover {
                 cursor: pointer;

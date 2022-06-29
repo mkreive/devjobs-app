@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import '../index.scss';
 import { filterActions } from '../store/store';
 
@@ -11,25 +11,39 @@ const SearchBar = function () {
     const [contract, setContract] = useState('');
     const [enteredLocation, setEnteredLocation] = useState('');
     const [enteredTitle, setEnteredTitle] = useState('');
+    const [showDropdown, setShowdropdown] = useState(false);
+    const jobs = useSelector((state) => state.filters);
+    const allLocations = new Set(jobs.map((job) => job.location));
+    const locations = Array.from(allLocations);
 
     const titleInputHandler = function (event) {
         setEnteredTitle(event.target.value);
         dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
     };
     const locationInputHandler = function (event) {
+        setShowdropdown(true);
         setEnteredLocation(event.target.value);
         dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
     };
     const fullTimeHandler = function () {
         if (fullTimeChecked === '') {
-            setFullTimeChecked(url);
             setContract('Full Time');
+            setFullTimeChecked(url);
             dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
         } else {
             setFullTimeChecked('');
             setContract('');
             dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
         }
+    };
+    const focusHandler = function () {
+        setShowdropdown(true);
+    };
+    const dropdownHandler = function (props) {
+        const selectedLocation = props.target.textContent.trim();
+        setEnteredLocation(selectedLocation);
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
+        setShowdropdown(false);
     };
 
     return (
@@ -45,10 +59,27 @@ const SearchBar = function () {
             <input
                 type='text'
                 id='location'
+                autoComplete='off'
                 className='input input-location'
                 placeholder='Filter by location...'
                 onChange={locationInputHandler}
+                onFocus={focusHandler}
+                value={enteredLocation}
             />
+            {showDropdown && (
+                <ul className='input__dropdown'>
+                    {locations.map((location) => (
+                        <li
+                            onClick={dropdownHandler}
+                            className='input__dropdown-row'
+                            key={Math.random() * 10}
+                            location={location}
+                        >
+                            {location}
+                        </li>
+                    ))}
+                </ul>
+            )}
 
             <hr className='line' />
             <div className='input-submit'>
