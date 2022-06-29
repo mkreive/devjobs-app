@@ -29,4 +29,27 @@
         justify-content: flex-start;
         align-items: center;
     }
+    &__dropdown {
+        position: absolute;
+        right: 38rem;
+        top: 9rem;
+        background-color: $color-white;
+        padding: 2rem 5rem;
+
+        &-row {
+            border-bottom: 1px solid $color-background-light-gray;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            font-family: inherit;
+            font-size: $font-size-main;
+            color: $color-background-dark-gray;
+            list-style: none;
+
+            &:hover {
+                cursor: pointer;
+                color: $color-accent-purple;
+            }
+        }
+    }
 }

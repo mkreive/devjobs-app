@@ -10,7 +10,6 @@ const filterSlice = createSlice({
             const locationInput = action.payload.location.toLowerCase();
             const titleInput = action.payload.title.toLowerCase();
             const contract = action.payload.fullTime;
-            console.log(contract);
 
             return initialState.filter(
                 (job) =>

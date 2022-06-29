@@ -51,6 +51,7 @@ const SearchBar = function () {
                 placeholder='Filter by location...'
                 onChange={locationInputHandler}
             />
+
             <hr className='line' />
             <div className='input-submit'>
                 <div className='checkbox' onClick={fullTimeHandler} style={{ backgroundImage: fullTimeChecked }}></div>
