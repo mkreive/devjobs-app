@@ -8,31 +8,30 @@ const url = `url('https://res.cloudinary.com/kreiva/image/upload/v1655102840/Dev
 const SearchBar = function () {
     const dispatch = useDispatch();
     const [fullTimeChecked, setFullTimeChecked] = useState('');
+    const [contract, setContract] = useState(['Part Time', 'Full Time', 'Freelance']);
     const [enteredLocation, setEnteredLocation] = useState('');
     const [enteredTitle, setEnteredTitle] = useState('');
 
     const fullTimeHandler = function () {
         if (!fullTimeChecked) {
             setFullTimeChecked(url);
-            dispatch(
-                filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: fullTimeChecked })
-            );
+            setContract(['Full Time']);
+            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
         } else {
             setFullTimeChecked('');
-            dispatch(
-                filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: fullTimeChecked })
-            );
+            setContract(['Part Time', 'Full Time', 'Freelance']);
+            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
         }
     };
 
     const locationInputHandler = function (event) {
         setEnteredLocation(event.target.value);
-        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: fullTimeChecked }));
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
     };
 
     const titleInputHandler = function (event) {
         setEnteredTitle(event.target.value);
-        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: fullTimeChecked }));
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
     };
 
     return (

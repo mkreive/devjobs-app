@@ -9,36 +9,17 @@ const filterSlice = createSlice({
         search(state, action) {
             const locationInput = action.payload.location.toLowerCase();
             const titleInput = action.payload.title.toLowerCase();
-            // const checkmarkInput = action.payload.fullTime;
+            const contract = action.payload.fullTime;
+            console.log(contract);
 
             return initialState.filter(
                 (job) =>
                     job.location.toLowerCase().trim().includes(locationInput) &&
                     (job.company.toLowerCase().trim().includes(titleInput) ||
                         job.position.toLowerCase().trim().includes(titleInput) ||
-                        job.requirements.items.forEach((item) => item.includes(titleInput)))
+                        job.requirements.items.forEach((item) => item.includes(titleInput))) &&
+                    contract.includes(job.contract)
             );
-
-            // if (titleInput) {
-            //     return (state = initialState.filter(
-            //         (job) =>
-            //             job.company.toLowerCase().trim().includes(titleInput) ||
-            //             job.position.toLowerCase().trim().includes(titleInput) ||
-            //             job.requirements.items.forEach((item) => item.includes(titleInput))
-            //     )).filter((job) => job.location.toLowerCase().trim().includes(locationInput));
-            // }
-            // if (locationInput) {
-            //     return (state = initialState.filter((job) =>
-            //         job.location.toLowerCase().trim().includes(locationInput)
-            //     )).filter(
-            //         (job) =>
-            //             job.company.toLowerCase().trim().includes(titleInput) ||
-            //             job.position.toLowerCase().trim().includes(titleInput)
-            //     );
-            // }
-            // if (checkmarkInput) {
-            //     return (state = initialState.filter((job) => job.contract === 'Full Time'));
-            // }
         },
     },
 });
