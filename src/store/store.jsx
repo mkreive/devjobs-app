@@ -13,11 +13,11 @@ const filterSlice = createSlice({
 
             return initialState.filter(
                 (job) =>
+                    job.contract.includes(contract) &&
                     job.location.toLowerCase().trim().includes(locationInput) &&
                     (job.company.toLowerCase().trim().includes(titleInput) ||
                         job.position.toLowerCase().trim().includes(titleInput) ||
-                        job.requirements.items.forEach((item) => item.includes(titleInput))) &&
-                    contract.includes(job.contract)
+                        job.requirements.items.forEach((item) => item.includes(titleInput)))
             );
         },
     },
