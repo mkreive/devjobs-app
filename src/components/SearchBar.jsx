@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import '../index.scss';
 import { filterActions } from '../store/store';
@@ -18,22 +19,18 @@ const SearchBar = function () {
 
     const titleInputHandler = function (event) {
         setEnteredTitle(event.target.value);
-        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
     };
     const locationInputHandler = function (event) {
         setShowdropdown(true);
         setEnteredLocation(event.target.value);
-        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
     };
     const fullTimeHandler = function () {
         if (fullTimeChecked === '') {
             setContract('Full Time');
             setFullTimeChecked(url);
-            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
         } else {
             setFullTimeChecked('');
             setContract('');
-            dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
         }
     };
     const focusHandler = function () {
@@ -42,9 +39,13 @@ const SearchBar = function () {
     const dropdownHandler = function (props) {
         const selectedLocation = props.target.textContent.trim();
         setEnteredLocation(selectedLocation);
-        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
+
         setShowdropdown(false);
     };
+
+    useEffect(() => {
+        dispatch(filterActions.search({ location: enteredLocation, title: enteredTitle, fullTime: contract }));
+    }, [enteredLocation, enteredTitle, contract]);
 
     return (
         <div className='header-search'>
